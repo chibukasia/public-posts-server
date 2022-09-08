@@ -1,0 +1,9 @@
+# ignore the bundler config 
+/.bundle 
+
+# ignore the default sqlite database 
+/db/*.sqlite3
+/db/*.sqlite3-* 
+
+# Byebug 
+.byebug_history

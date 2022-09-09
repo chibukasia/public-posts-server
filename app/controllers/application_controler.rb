@@ -4,7 +4,11 @@ class ApplicationController < Sinatra::Base
     # get all the posts from the posts table in the database
     get '/posts' do 
         posts = Post.all 
-        posts.to_json
+        posts.to_json(only: [:id, :title, :content, :category, :created_at, :posted_by], include: {
+            comments: {only: [:id, :content, :created_at], include: {
+                user: {only: [:id, :username]}
+            }}
+        }) 
     end
 
     # get a specific post using a post id
@@ -55,6 +59,11 @@ class ApplicationController < Sinatra::Base
             post_id: params[:post_id]
         )
         comment.to_json
+    end
+
+    get '/users' do 
+        users = User.all 
+        users.to_json 
     end
 
 end

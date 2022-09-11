@@ -61,6 +61,18 @@ class ApplicationController < Sinatra::Base
         comment.to_json
     end
 
+
+    # delete comment 
+    delete '/comments/:id' do 
+        comment = Comment.find(params[:id])
+        comment.destroy
+        comment.to_json
+    end
+    get '/comments' do 
+        comments = Comment.all
+        comments.to_json
+    end
+    # Get users
     get '/users' do 
         users = User.all 
         users.to_json 

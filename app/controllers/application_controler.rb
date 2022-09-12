@@ -4,7 +4,7 @@ class ApplicationController < Sinatra::Base
     # get all the posts from the posts table in the database
     get '/posts' do 
         posts = Post.all 
-        posts.to_json(only: [:id, :title, :content, :category, :created_at, :posted_by], include: {
+        posts.to_json(only: [:id, :title, :content, :category, :created_at, :posted_by, :likes], include: {
             comments: {only: [:id, :content, :created_at], include: {
                 user: {only: [:id, :username]}
             }}
@@ -15,23 +15,28 @@ class ApplicationController < Sinatra::Base
     get '/posts/:id' do 
         post = Post.find(params[:id])
         # post.to_json(include: {comments:{include: :user} })
-        post.to_json(only: [:id, :title, :content, :category, :created_at, :posted_by], include: {
-            comments: {only: [:content, :created_at], include: {
-                user: {only: [:username]}
+        post.to_json(only: [:id, :title, :content, :category, :created_at, :posted_by, :likes], include: {
+            comments: {only: [:id, :content, :created_at], include: {
+                user: {only: [:id, :username]}
             }}
-        })  
+        })   
     end
 
     # update a post
     patch '/posts/:id' do 
         post = Post.find(params[:id])
         post.update(
-            title: params[:title], 
-            content: params[:content], 
-            category: params[:category], 
-            posted_by: params[:posted_by]
+            # title: params[:title], 
+            # content: params[:content], 
+            # category: params[:category], 
+            # posted_by: params[:posted_by],
+            likes: params[:likes]
             )
-        post.to_json
+            post.to_json(only: [:id, :title, :content, :category, :created_at, :posted_by, :likes], include: {
+                comments: {only: [:id, :content, :created_at], include: {
+                    user: {only: [:id, :username]}
+                }}
+            }) 
     end
 
     # delete a post
@@ -48,7 +53,11 @@ class ApplicationController < Sinatra::Base
         category: params[:category], 
         posted_by: params[:posted_by]
         )
-        post.to_json
+        post.to_json(only: [:id, :title, :content, :category, :created_at, :posted_by, :likes], include: {
+                comments: {only: [:id, :content, :created_at], include: {
+                    user: {only: [:id, :username]}
+                }}
+            }) 
     end
 
     # add a new comment 

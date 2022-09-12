@@ -7,11 +7,11 @@ museveni = User.create(username: "Yoweri Kaguta", country: "Uganda")
 
 puts "🌱 Seeding posts..."
 # create posts sample data
-post1 = Post.create(title: "Dark At Mid-day", content: "The gooese was roatsed and brought to the governors palace. But the palace was deserted. Noon was nolonger an hour to live but an hour to dies", category: "Poems", posted_by: "Juan Alina")
-post2 = Post.create(title: "Masculine quote", content: "Never beat a fellow man while he is down", category: "Qoutes", posted_by: "Rahman Said Abdul")
-post3 = Post.create(title: "Raila's Joke", content: "Risasi imebakia ngapi?...Na itapiga naini?...Raila", category: "Jokes", posted_by: "Siraj Saqil")
-post4 = Post.create(title: "Bible verse", content: "Jesus wept and turned bread into wine", category: "Spiritual qoutes", posted_by: "Terry Wambui") 
-post5 = Post.create(title: "Bela ciao by Hopsin", content: "If I don't make it \n to see tomorrow \n bela ciao bela cia0 cia0 \n If I don't make \n to see tomorrow \n please put some respect on my name", category: "Lyrics", posted_by: "Moses Waroma")
+post1 = Post.create(title: "Dark At Mid-day", content: "The gooese was roatsed and brought to the governors palace. But the palace was deserted. Noon was nolonger an hour to live but an hour to dies", category: "Poems", posted_by: "Juan Alina", likes: 5)
+post2 = Post.create(title: "Masculine quote", content: "Never beat a fellow man while he is down", category: "Qoutes", posted_by: "Rahman Said Abdul", likes: 4)
+post3 = Post.create(title: "Raila's Joke", content: "Risasi imebakia ngapi?...Na itapiga naini?...Raila", category: "Jokes", posted_by: "Siraj Saqil", likes: 7)
+post4 = Post.create(title: "Bible verse", content: "Jesus wept and turned bread into wine", category: "Spiritual qoutes", posted_by: "Terry Wambui", likes: 8) 
+post5 = Post.create(title: "Bela ciao by Hopsin", content: "If I don't make it \n to see tomorrow \n bela ciao bela cia0 cia0 \n If I don't make \n to see tomorrow \n please put some respect on my name", category: "Lyrics", posted_by: "Moses Waroma", likes: 3)
 
 puts "🌱 Seeding comments..."
 # create sample comments

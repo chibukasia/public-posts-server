@@ -20,9 +20,9 @@ Proceed to set up the frontend application using [this](https://github.com/chibu
 
 ### Sample screenshots from the project 
 #### The Home page 
-![home](./public/images/home.png "Home")
+![home](./images/home.png "Home")
 #### Add post 
-![home](./public/images/addpost.png "add post")
+![home](./images/addpost.png "add post")
 #### Contact us 
-![home](./public/images/contactus.png "Contact")
-![home](./public/images/contactus1.png "Contact")
+![home](./images/contactus.png "Contact")
+![home](./images/contactus1.png "Contact")
